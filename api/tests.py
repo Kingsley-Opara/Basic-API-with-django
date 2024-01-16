@@ -12,7 +12,7 @@ class TestApiEndpoint(TestCase):
     #     return super().setUp()
     
     def test_list_endpoint(self):
-        get_response = requests.get('https://api-person-service.onrender.com/api/list/')
+        get_response = requests.get('https://api-person-service.onrender.com/api/list/', timeout=60)
 
         self.assertEqual(get_response.status_code, 200)
 
@@ -24,6 +24,6 @@ class TestApiEndpoint(TestCase):
             "state_of_origin": "Imo",
             "occupation": "student"
         }
-        get_response = requests.post(endpoint, json=data)
+        get_response = requests.post(endpoint, json=data, timeout=60)
         print(get_response.json())
         self.assertNotEqual(get_response.status_code, 200)
