@@ -207,3 +207,4 @@ if POSTGRES_READY and not DEBUG:
     }
 
 CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*']
+SESSION_COOKIE_SECURE = True
